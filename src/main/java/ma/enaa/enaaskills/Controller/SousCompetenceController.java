@@ -25,22 +25,22 @@ public class SousCompetenceController {
     public List<SousCompetenceDto> Afficher(){
         return soucompetenceServices.Afficher();
     }
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     public SousCompetenceDto afficherParid(@PathVariable Long id){
         return soucompetenceServices.afficherParid(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/updat/{id}")
     public SousCompetenceDto Modifier(@PathVariable Long id , @PathVariable SousCompetenceDto sousCompetenceDto){
         return soucompetenceServices.Modifier(id,sousCompetenceDto);
     }
 
-    @DeleteMapping("/{id}")
-    public void Supprimer(Long id){
+    @DeleteMapping("{id}")
+    public void Supprimer(@PathVariable Long id){
         soucompetenceServices.Supprimer(id);
     }
 
-    @GetMapping("/{CompetenceId}")
+    @GetMapping("{CompetenceId}")
     public List<SousCompetenceDto> AfficherCompetenceByid(@PathVariable Long CompetenceId){
         return soucompetenceServices.AfficherCompetenceByid(CompetenceId);
     }
