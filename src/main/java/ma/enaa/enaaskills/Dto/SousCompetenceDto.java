@@ -8,9 +8,18 @@ public class SousCompetenceDto  {
     String titre;
     String description;
     Long competenceId;
+    boolean etatValidation;
 
 
     public SousCompetenceDto() {
+    }
+
+    public boolean isEtatValidation() {
+        return etatValidation;
+    }
+
+    public void setEtatValidation(boolean etatValidation) {
+        this.etatValidation = etatValidation;
     }
 
     public Long getId() {

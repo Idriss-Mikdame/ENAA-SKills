@@ -8,7 +8,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/SouCompetence")
-@CrossOrigin(origins = "*")
 public class SousCompetenceController {
     private final SouCompetenceServices soucompetenceServices;
 
@@ -25,14 +24,15 @@ public class SousCompetenceController {
     public List<SousCompetenceDto> Afficher(){
         return soucompetenceServices.Afficher();
     }
-    @GetMapping("{id}")
-    public SousCompetenceDto afficherParid(@PathVariable Long id){
+    @GetMapping("/{id}")
+    public SousCompetenceDto afficherParId(@PathVariable Long id) {
         return soucompetenceServices.afficherParid(id);
     }
 
-    @PutMapping("/updat/{id}")
-    public SousCompetenceDto Modifier(@PathVariable Long id , @PathVariable SousCompetenceDto sousCompetenceDto){
-        return soucompetenceServices.Modifier(id,sousCompetenceDto);
+
+    @PutMapping("/update/{id}")
+    public SousCompetenceDto modifier(@PathVariable Long id, @RequestBody SousCompetenceDto sousCompetenceDto) {
+        return soucompetenceServices.Modifier(id, sousCompetenceDto);
     }
 
     @DeleteMapping("{id}")
@@ -40,8 +40,13 @@ public class SousCompetenceController {
         soucompetenceServices.Supprimer(id);
     }
 
-    @GetMapping("{CompetenceId}")
-    public List<SousCompetenceDto> AfficherCompetenceByid(@PathVariable Long CompetenceId){
-        return soucompetenceServices.AfficherCompetenceByid(CompetenceId);
+
+    @GetMapping("/competence/{competenceId}")
+    public List<SousCompetenceDto> afficherParCompetence(@PathVariable Long competenceId) {
+        return soucompetenceServices.AfficherCompetenceByid(competenceId);
     }
+//    @PatchMapping("/{id}")
+//    public SousCompetenceDto getCom(@PathVariable Long id, @RequestParam boolean isValid){
+//        return soucompetenceServices.updateValidation(id,isValid);
+//    }
 }

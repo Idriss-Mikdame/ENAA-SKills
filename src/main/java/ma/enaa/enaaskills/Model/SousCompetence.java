@@ -10,10 +10,21 @@ public class SousCompetence {
     private Long id;
     private String titre;
     private String description;
+    private  boolean etatValidation;
     @ManyToOne
     private Competence competence;
 
+
+
     public SousCompetence() {
+    }
+
+    public boolean isEtatValidation() {
+        return etatValidation;
+    }
+
+    public void setEtatValidation(boolean etatValidation) {
+        this.etatValidation = etatValidation;
     }
 
     public Long getId() {
