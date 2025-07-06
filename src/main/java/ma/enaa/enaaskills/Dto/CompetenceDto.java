@@ -7,6 +7,7 @@ public class CompetenceDto  {
     String code;
     String nom;
     String description;
+    boolean etatValidation;
 
     public CompetenceDto() {
     }
@@ -41,5 +42,13 @@ public class CompetenceDto  {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean isEtatValidation() {
+        return etatValidation;
+    }
+
+    public void setEtatValidation(boolean etatValidation) {
+        this.etatValidation = etatValidation;
     }
 }
