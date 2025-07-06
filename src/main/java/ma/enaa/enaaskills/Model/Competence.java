@@ -1,5 +1,6 @@
 package ma.enaa.enaaskills.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -13,11 +14,32 @@ public class Competence {
     private String code;
     private String nom;
     private String description;
-
+    private boolean etatValidation;
+    @JsonIgnore
     @OneToMany(mappedBy = "competence")
     private List<SousCompetence> sousCompetence;
 
+
+//    public boolean SimpleIsAcquired(){
+//        if(sousCompetence  == null || sousCompetence .isEmpty()){
+//            return false;
+//        }
+//        for (SousCompetence  sc: sousCompetence ){
+//            if (!sc.isEtatValidation()){
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
     public Competence() {
+    }
+
+    public boolean isEtatValidation() {
+        return etatValidation;
+    }
+
+    public void setEtatValidation(boolean etatValidation) {
+        this.etatValidation = etatValidation;
     }
 
     public Long getId() {
